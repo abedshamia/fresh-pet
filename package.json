@@ -11,6 +11,11 @@
     "test": "jest",
     "heroku-postbuild": "cd client && yarn install --ignore-engines && yarn run build"
   },
+  "engines": {
+    "node": "16.14.0",
+    "npm": "8.5.1",
+    "yarn": "1.22.17"
+  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "compression": "^1.7.4",
