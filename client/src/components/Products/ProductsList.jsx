@@ -42,17 +42,15 @@ class ProductsList extends Component {
   }
 
   handlePriceRange = (min, max) => {
-    this.setState({priceRange: [min, max]})
-    const { products } = this.state;
-    const filteredProducts = products.filter((product) => {
+    this.setState({priceRange: [min, max]});
+    const {products} = this.state;
+    const filteredProducts = products.filter(product => {
       return product.price >= min && product.price <= max;
     });
-    this.setState({ filteredProducts });
-  }
-
+    this.setState({filteredProducts});
+  };
 
   handlePetSelection = pet => {
-
     if (pet === 'all') {
       this.setState({filteredProducts: this.state.products});
       return;
@@ -250,16 +248,10 @@ class ProductsList extends Component {
       formInput,
       priceRange,
     } = this.state;
-    const {
-      alertSuccess,
-      alertError,
-      updateNumberCartProduct,
-      updateCartProduct,
-      isLogin,
-    } = this.props;
+    const {alertSuccess, alertError, updateNumberCartProduct, updateCartProduct, isLogin} =
+      this.props;
 
     const productsList = filteredProducts.map(product => (
-
       <Product
         key={product.id}
         product={product}
@@ -299,12 +291,7 @@ class ProductsList extends Component {
           openModalHandler={this.openModalHandler}
           isLogin={isLogin}
         />
-        <PriceFilter priceRange={priceRange} handlePriceRange={this.handlePriceRange}/>
-        <section className='products-section'>
-          {this.state.filteredProducts.length === 0 && (
-            <h1>No Products Found</h1>
-          )}
-
+        <PriceFilter priceRange={priceRange} handlePriceRange={this.handlePriceRange} />
 
         <section className="products-section" id="products">
           {this.state.filteredProducts.length === 0 && <h1>No Products Found</h1>}
